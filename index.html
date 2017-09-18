@@ -1,0 +1,326 @@
+<!doctype html>
+<!-- More info at http://www.sortingbits.net -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Neural networks for fun and profit</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+		<link rel="stylesheet" href="css/extra.css">
+		
+	
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div style="float:left;">
+						<a href="http://www.heatonresearch.com/encog/"><img src="images/encog128.png" class="transparentImage"></a>
+					</div>
+					<div style="float:right; margin-left: 10px;">
+							<a href="http://www.geteventstore.com"><img src="images/eventstore.png" class="transparentImage" style="width: 120px"></a>
+						</div>
+						
+					<h3>Predict BTC price using Encog and Eventstore</h3>
+						(for fun and profit)
+				</section>
+
+				<section>
+					<img class="transparentImage" src="images/btclogo.png"/>
+				</section>
+
+				<section>
+						Trading REST API
+						<img src="images/bitfinexapi.png" />
+					</section>
+
+				<section>
+					<section>
+						<h3>Bitcoin USD price (Bitfinex.com)</h3>
+						<img src="images/bitfinex.png"/>
+					</section>
+						<section>
+								<h3>Bitcoin USD price (Bitfinex.com)</h3>
+							<iframe class="stretch" src="https://s.tradingview.com/widgetembed/?symbol=BITFINEX%3ABTCUSD&interval=1&hidesidetoolbar=0&symboledit=1&saveimage=1&toolbarbg=rgba(255,%20255,%20255,%201)&studies=MACD@tv-basicstudies&theme=White&style=1&timezone=Etc%2FUTC&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=www.bfxdata.com&utm_medium=widget&utm_campaign=chart&utm_term=BITFINEX%3ABTCUSD"></iframe>
+						</section>
+				</section>
+
+				<section>
+						API -> Ticker (JSON)
+					<pre>
+					<code data-trim>
+						{
+							"mid": "4352.3",
+							"bid": "4351.8",
+							"ask": "4352.8",
+							"last_price": "4351.8",
+							"low": "4175.0",
+							"high": "4375.0",
+							"volume": "20198.78284874",
+							"timestamp": "1503942382.196537574"
+						}
+						</code>
+					</pre>
+					<a href="https://api.bitfinex.com/v1/ticker/BTCUSD" target="_blank">https://api.bitfinex.com/v1/ticker/BTCUSD</a>
+						
+	
+					
+				</section>
+
+				<section>
+						Ticker + <span id="highlight-machine">{PredictionMachine}</span> + Trading-api<br> <br>
+						<span style="font-size: 52px;">==</span> <br>
+						<br>
+						<span style="font-size: 64px;">$$</span>
+						<div class="fragment" id="highlightmachine"></div>
+					</section>
+	
+
+
+				<section>
+					<img class="stretch" src="images/fortunetellermachine.jpg"/>
+				</section>
+
+				<section>
+						<h3>Nuget</h3>
+						<img src="images/nuget-encog.png"/>
+					</section>
+
+
+				<section class="center">
+						<div class="stretch">
+							<div style="float:right; margin-left:20px;">
+										<img src="images/encog128.png">
+							</div>
+							<div class="center">
+									<h3>Encog?</h3>
+									<ul>
+											<li class="nn-fade">Support Vector Machines</li>
+											<li class="nn-highlight">Neural Networks</li>
+											<li class="nn-fade">Bayesian Networks</li>
+											<li class="nn-fade">Hidden Markov Models</li>
+											<li class="nn-fade">Genetic Programming</li>
+									</ul>
+							</div>
+							<div>
+								
+							</div>
+							<div id="highlightnn" class="fragment" ></div>
+						</div>
+					</section>
+	
+					
+					
+						
+				
+					<section>
+						<section class="center">
+							<div class="stretch">
+								<div style="float:right; margin-left:20px;">
+											<img src="images/eventstore.png" class="transparentImage" style="width: 400px;">
+								</div>
+								<div class="center">
+									<h3>Eventstore?</h3>
+										<ul class="center">
+												<li>Stores data in streams</li>
+												<li>Write events</li>
+												<li>Read events</li>
+												<li>Subscribe to events</li>
+										</ul>
+								</div>
+							</div>
+						</section>
+		
+						<section>
+								<img class="stretch" src="images/eventstore-gui.png">
+						</section>
+		
+						<section>
+								<img class="stretch" src="images/eventstore-ticker-event.png">
+						</section>
+			
+						<section>
+								<h3>Console app</h3>
+								<h6> (or service/daemon)</h6>	
+								<img class="stretch" src="images/eventstore-console.png">
+						</section>
+					</section>
+						
+
+							
+										<section>
+											<h3>Nuget</h3>
+												<img class="stretch" src="images/nuget-eventstore.png">
+										</section>
+						
+						
+										<section>
+												<img class="stretch" src="images/diagram.png">
+											</section>
+												
+
+
+
+			 <section>
+			 <section>
+				 <h1>Neural nets</h1>
+			 </section>
+				 <section>
+				 <div class="stretch">
+						<a href="https://www.coursera.org/learn/machine-learning"><img  src="images/nnmath.png"/></a>
+				</div>
+			 </section>
+
+			 </section>
+				<section>
+					<h3>Neural net</h3>
+					<img class="stretch" src="images/neuralnet.png"/>
+					<h6>(feed forward)</h6>
+				</section>
+
+				
+
+				<section>
+						<h3>Time series prediction</h3>
+						<img class="stretch" src="images/timeseriesnet.png"/>
+				</section>
+
+				<section>
+						<h3>Predictions good enough?</h3><br/>
+						<h4>Training set <span class="fragment"> - (e.g. 2/3)</span></h3>
+							
+						<h4>Validation set <span class="fragment"> - (e.g. 1/3)</span></h3>
+							
+					</section>
+		
+
+				<section class="center">
+						<div class="stretch">
+							<div style="float:right; margin-left:20px;">
+									<img src="images/timeseriesnet.png" class="transparentImage" style="width: 400px;"><br/>
+									<img src="images/tickerjson.png" class="transparentImage" style="width: 400px;">
+									
+							</div>
+							<div class="center">
+								<h3>Config</h3>
+									<ul class="center">
+											<li class="fragment highlight-current-red">Number of last tickers</li>
+											<li class="fragment highlight-current-red">Which input columns</li>
+											<li class="fragment highlight-current-red">Column(s) to predict</li>
+									</ul>
+							</div>
+						</div>
+				</section>
+				
+
+				<section>
+						<div style="position: absolute; top: 0px; right: 0px;">
+								<img src="images/neuralnet.png" class="transparentImage" style="width: 200px;">
+							
+								
+						</div>
+						<div>
+						<h3>Summary</h3>
+						<ul>
+							<li class="fragment highlight-current-red">Input nodes
+								<ul>
+									<li>Number of previous tickers</li>
+									<li>Which columns
+								</ul>
+							</li>
+							<li class="fragment highlight-current-red">Output node(s): 1
+								<ul><li>"last_price"</li></ul>
+							</li>
+							<li class="fragment highlight-current-red">Historic data split into training/validation sets</li>
+							
+							
+						</div>
+					</section>
+
+					<section>
+						<h3>Normalization</h3>
+							<img src="images/normalization.png" class="stretch"/>
+						</section>
+		
+					<section>
+						<div  style="float: right;">
+							<img  src="images/karl3.jpg" style="width: 225px; border: 1px solid gray; margin-right: 100px;">
+						</div>
+						<div style="text-align: left">
+							<span style="font-size: 64px;">Karl Tillström</span><br>
+							<span style="color: #E2007A;">Collector Bank</span><br/>
+							<br/>
+							karl@sortingbits.net<br/>
+							<a href="http://www.sortingbits.net">www.sortingbits.net</a><br/>
+														<br>
+							Github: <br/>
+							<a href="https://github.com/skarlman/ForFunAndProfit">https://github.com/skarlman/ForFunAndProfit</a>
+							<br/>
+							
+						</div>
+						
+						
+					</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/jquery.color-2.1.2.min.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+			Reveal.addEventListener( 'fragmentshown', function( event ) {
+					// event.fragment = the fragment DOM element
+					if (event.fragment.id =="highlightnn"){
+						
+						$(".nn-fade")
+						.animate({ color: "gray"}, 200);
+						
+
+						$(".nn-highlight") 
+						.animate({ color: "red"}, 200)
+						.animate({ fontSize: "48px" }, 500 );
+					}
+					
+					if (event.fragment.id =="highlightmachine"){
+					
+						$("#highlight-machine") 
+						.animate({ color: "rgba(18, 254, 18, 1)"}, 300)
+						.animate({ fontSize: "48px" }, 500 );
+					}
+
+					
+				}
+ 			);
+		</script>
+
+	</body>
+</html>

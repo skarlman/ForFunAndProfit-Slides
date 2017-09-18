@@ -1,0 +1,5 @@
+.transparentImage { 
+    background: inherit !important; 
+    box-shadow: none !important;
+    border: none !important;
+}		
